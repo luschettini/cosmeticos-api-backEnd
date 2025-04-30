@@ -5,7 +5,7 @@ const apiKeyMiddleware = require('../config/apiKey');
 
 router.use(apiKeyMiddleware); 
 
-router.get('/marcas/pdf', reportController.exportMarcasPDF);
+router.get('/pdf', reportController.exportMarcasPDF);
 
 
 

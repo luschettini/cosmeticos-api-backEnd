@@ -4,7 +4,7 @@ const path = require("path");
 // Pasta onde as imagens serão salvas
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "uploads/"); // Certifique-se de que a pasta "uploads" existe
+        cb(null, "uploads/"); 
     },
     filename: (req, file, cb) => {
         const uniqueName = Date.now() + "-" + file.originalname;

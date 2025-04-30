@@ -12,6 +12,4 @@ router.post("/produtos", cosmeticosController.createProdutos);
 router.delete("/produtos/:id", cosmeticosController.deleteProdutos);
 router.put("/produtos/:id", upload.single("foto"), cosmeticosController.updateProdutos);
 
-
-
 module.exports = router;

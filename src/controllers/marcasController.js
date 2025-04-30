@@ -47,20 +47,12 @@ const createMarcas = async (req, res) => {
 
 const deleteMarcas = async (req, res) => {
     try {
-        const id = req.params.id;
-        const result = await marcasModel.deleteMarca(id);
-
-        if (!result) {
-            return res.status(404).json({ error: "Marca não encontrada" });
-        }
-
-        res.json({ message: "Marca deletada com sucesso" });
+        const message = await marcasModel.deleteMarcas(req.params.id);
+        res.json(message);
     } catch (error) {
-        console.error("Erro ao deletar marca:", error);
-        res.status(500).json({ error: "Erro ao deletar marca" });
+        res.status(500).json({ error: 'Erro ao deletar marca' });
     }
 };
-
 
 const updateMarcas = async (req, res) => {
     try {
@@ -74,6 +66,7 @@ const updateMarcas = async (req, res) => {
         const marca = await marcasModel.updateMarcas(req.params.id, nome, pais);
 
         if (!marca) {
+            
             console.log('Marca não encontrada para o ID:', req.params.id); 
             return res.status(404).json({ error: 'Marca não encontrada' });
         }
